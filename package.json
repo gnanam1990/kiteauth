@@ -1,0 +1,16 @@
+{
+  "name": "kiteauth",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Sign-in-with-Kite — EIP-4361-style auth for Kite-native apps",
+  "scripts": {
+    "build": "pnpm -r --filter \"./packages/*\" build",
+    "dev": "pnpm --filter demo dev",
+    "lint": "pnpm -r exec tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "tsup": "^8.3.5"
+  },
+  "packageManager": "pnpm@9.12.0"
+}

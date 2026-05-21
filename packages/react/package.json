@@ -1,0 +1,39 @@
+{
+  "name": "@kiteauth/react",
+  "version": "0.1.0",
+  "description": "React components and hooks for sign-in-with-Kite",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean --external react,react-dom,wagmi,viem",
+    "dev": "tsup src/index.ts --format esm,cjs --dts --watch"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18",
+    "viem": "^2.21.0",
+    "wagmi": "^2.12.0"
+  },
+  "dependencies": {
+    "@kiteauth/core": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "react": "^19.0.0",
+    "viem": "^2.21.0",
+    "wagmi": "^2.12.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.6.3"
+  }
+}
