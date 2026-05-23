@@ -2,7 +2,7 @@
 
 Sign-in-with-Kite — EIP-4361-style auth for Kite-native apps. Stateless, signature-based, no servers required.
 
-Live demo: deploy from `apps/demo`.
+Live demo: https://kiteauth.vercel.app
 
 ## Packages
 
@@ -19,6 +19,13 @@ pnpm install
 pnpm build
 pnpm dev          # opens the demo at http://localhost:3000
 ```
+
+## Deployment
+
+- **Production demo:** https://kiteauth.vercel.app
+- **Host:** Vercel project `kiteauth`
+- **Status:** packages and demo build verified on 2026-05-23.
+- **Vercel config:** deploy from the repository root so `vercel.json` can install the pnpm workspace, build `packages/*`, and publish `apps/demo/dist`.
 
 ### Frontend
 
