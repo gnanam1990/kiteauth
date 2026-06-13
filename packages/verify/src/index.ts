@@ -38,11 +38,19 @@ export async function verifyKiteSignature(opts: VerifyOptions): Promise<VerifyRe
     return { valid: false, reason: "nonce reused" };
   }
 
-  const valid = await verifyMessage({
-    address: parsed.address as `0x${string}`,
-    message: opts.message,
-    signature: opts.signature,
-  });
+  let valid: boolean;
+  try {
+    valid = await verifyMessage({
+      address: parsed.address as `0x${string}`,
+      message: opts.message,
+      signature: opts.signature,
+    });
+  } catch {
+    // viem throws on malformed signatures (bad length, invalid r/s/v).
+    // Treat any such failure as an invalid signature rather than crashing
+    // the caller — verification must always fail closed via the result object.
+    return { valid: false, reason: "invalid signature" };
+  }
 
   if (!valid) return { valid: false, reason: "invalid signature" };
 
